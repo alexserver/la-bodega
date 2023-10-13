@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## La Bodega
+
+A custom-made corner convenience store demo to show the power of NextJs, Radix, and Prisma.
 
 ## Getting Started
 
