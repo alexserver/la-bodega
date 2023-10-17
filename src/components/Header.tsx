@@ -9,6 +9,7 @@ const Header = () => {
         La Bodega
       </Heading>
       <Searchbox />
+      <Link href="/login">Log in</Link>
       <Link
         size="2"
         href="https://github.com/alexserver/la-bodega"
