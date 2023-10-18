@@ -1,10 +1,31 @@
 import Image from 'next/image'
 import { Box, Container, Heading } from '@radix-ui/themes'
 import Header from '../components/Header'
-import ProductList from '../components/ProductList'
-import { products } from '../data/mock.products'
+import ProductList, { type ProductListProps } from '../components/ProductList'
+import { supabase } from '@/lib/supabase'
 
-export default function Home() {
+const getProducts = async () => {
+  const { data, error } = await supabase.from('product').select()
+
+  if (error) {
+    throw new Error('Error getting table data')
+  }
+
+  const products = data.map(({ name, description, price }) => ({
+    name,
+    price,
+    description,
+    imageUrl: '',
+  })) as ProductListProps['products']
+
+  return { products }
+}
+
+export default async function Home() {
+  // fetch products from supabase
+
+  const { products } = await getProducts()
+
   return (
     <Container size="4" className="min-h-screen flex flex-col justify-stretch">
       <Header />
