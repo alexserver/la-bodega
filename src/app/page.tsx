@@ -18,8 +18,6 @@ const getProducts = async () => {
     throw new Error(error.message)
   }
 
-  console.log(data?.at(0)?.product_image)
-
   const products = data.map(({ name, description, price, product_image }) => ({
     name,
     price,
